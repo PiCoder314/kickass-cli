@@ -77,4 +77,4 @@ if __name__ == "__main__":
         'class': 'kaGiantButton',
         'title': 'Magnet link'
     }).get('href')
-    os.system(f'xdg-open {link}')
+    os.system(f"xdg-open '{link}'")
