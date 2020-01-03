@@ -1,7 +1,9 @@
+#!/bin/python3
 from requests import get, RequestException
 from contextlib import closing
 from bs4 import BeautifulSoup as soup
 import inquirer
+import os
 
 
 def simple_get(url):
@@ -69,4 +71,10 @@ if __name__ == "__main__":
 
     title = inquirer.prompt(questions)['title']
     link = list(filter(lambda show: show['title'] == title, shows))[0]['link']
-    print(link)
+    raw_html = simple_get(f'https://katcr.to/{link}')
+    html = soup(raw_html, 'html.parser')
+    link = html.find('a', attrs={
+        'class': 'kaGiantButton',
+        'title': 'Magnet link'
+    }).get('href')
+    os.system(f'xdg-open {link}')
