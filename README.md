@@ -44,19 +44,11 @@ sh -c "curl -fsSL https://github.com/PiCoder314/kickass-tui/archive/master.zip -
 ```markdown
 # Installation
 
-chmod u+x yts
+chmod u+x kat
 
 ## Usage
 
-./kat --query=<search-term> <options>
-
-# Options
-
--q, --query= : movie to search for.
-
--p, --use-proxy : use anonymous proxy.
-
--c, --use-cli : use aria2c to download torrent in command line.Install aria2c by <package manager> <install command> aria2.
+./kat
 ```
 
 ## Contributing
