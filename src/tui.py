@@ -51,7 +51,6 @@ def mainloop():
         if key < 0:
             continue
 
-
         # Menu Mode
         if MODE == MENU:
             if key == ord('q'):

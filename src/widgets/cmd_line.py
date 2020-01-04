@@ -35,7 +35,7 @@ class CommandLine():
             cmd = self.cmd_string
             self.clear()
             return cmd
-        elif key == curses.KEY_BACKSPACE or chr(key) == '^?':
+        elif key == 127:
             self.cmd_string = self.cmd_string[:-1]
             self.render()
         else:
@@ -45,4 +45,8 @@ class CommandLine():
 
     def render(self):
         self.window.move(self.y,self.x)
-        self.window.addstr(f"/{self.cmd_string}")
+        rows, cols = self.window.getmaxyx()
+        txt = pad(self.cmd_string, cols-1, ' ')
+        self.window.addstr(f"/{txt}")
+        curses.panel.update_panels()
+        curses.doupdate()
